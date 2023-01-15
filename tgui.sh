@@ -93,7 +93,6 @@ __main() {
 	for i in i_x11 i_de i_terminal i_extras overview; do
 		printf "\e[H\e[J"
 		$i
-		sleep 1s
 	done
 }
 __main
