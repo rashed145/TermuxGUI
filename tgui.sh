@@ -5,7 +5,7 @@ printf "\e[?1049h\e[22;0;0t"
 update() {
 	um="Updating Package Index"
 	printf '\n\n\001\e[1;94m\002%s\001\e[0m\002\n\n' "$um"
-	apt -q=2 update
+	apt update
 }
 
 i_de() {
