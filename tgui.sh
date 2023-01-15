@@ -81,10 +81,10 @@ s_vnc() {
 
 i_pks() {
 	upm="Upgrading Packages"
-	printf '\n\001\e[1;92m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#upm}/2)] "$upm"
+	printf '\n\001\e[1;92m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#upm}/2)+1] "$upm"
 	apt full-upgrade
 	inm="Installing Necessary Packages"
-	printf '\n\001\e[1;93m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#inm}/2)] "$inm"
+	printf '\n\001\e[1;93m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#inm}/2)+1] "$inm"
 	apt install x11-repo && apt update
         apt install tigervnc ${all_pks[@]}
 }
