@@ -5,7 +5,7 @@ printf "\e[?1049h\e[22;0;0t"
 update() {
 	um="Updating Package Index"
 	printf '\n\n\001\e[1;94m\002%s\001\e[0m\002\n\n' "$um"
-	apt update
+	apt -q=2 update
 }
 
 i_de() {
@@ -82,10 +82,10 @@ s_vnc() {
 i_pks() {
 	upm="Upgrading Packages"
 	printf '\n\001\e[1;92m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#upm}/2)] "$upm"
-	apt full-upgrade
+	apt -q=2 full-upgrade
 	inm="Installing Necessary Packages"
 	printf '\n\001\e[1;93m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#inm}/2)] "$inm"
-	apt -q=2 install x11-repo && apt update
+	apt -q=2 install x11-repo && apt -q=2 update
         apt -q=2 install tigervnc ${all_pks[@]}
 }
 
