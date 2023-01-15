@@ -85,7 +85,7 @@ overview() {
 	for i in "${msg[@]}"; do
 		printf "$i\n"
 	done
-	read -e -n1 -p "Enter to Continue or press any key to cancel..." cn
+	read -e -n1 -p "Press Enter or Space to Continue or press any key to cancel..." cn
 	[ -z "$cn" ]||exit 0
 }
 
