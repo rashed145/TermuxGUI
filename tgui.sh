@@ -85,7 +85,8 @@ i_pks() {
 	apt full-upgrade
 	inm="Installing Necessary Packages"
 	printf '\n\001\e[1;93m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#inm}/2)] "$inm"
-	apt -q=2 install x11-repo tigervnc ${all_pks[@]}
+	apt -q=2 install x11-repo && apt update
+        apt -q=2 install tigervnc ${all_pks[@]}
 }
 
 overview() {
