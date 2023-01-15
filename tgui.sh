@@ -97,7 +97,7 @@ __main() {
 	done
 }
 __main
-tput rmcup
+printf "\e[?1049l\e[23;0;0t"
 i_pks
 s_vnc
 
