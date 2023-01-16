@@ -82,7 +82,7 @@ s_vnc() {
 i_pks() {
 	upm="Upgrading Packages"
 	printf '\n\001\e[1;92m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#upm}/2)+1] "$upm"
-	apt full-upgrade
+	yes|apt full-upgrade && apt update
 	inm="Installing Necessary Packages"
 	printf '\n\001\e[1;93m\002%*s\001\e[0m\002\n\n' $[(COLUMNS/2)+(${#inm}/2)+1] "$inm"
 	apt install x11-repo && apt update
