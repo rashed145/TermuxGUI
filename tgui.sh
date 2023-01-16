@@ -65,15 +65,14 @@ i_terminal() {
 }
 
 s_vnc() {
-	mkdir -p ~/bin
-	printf "#!/usr/bin/bash\nvncserver -kill :1\nvncserver :1\nexport DISPLAY=:1\n" > ~/bin/gui
-	chmod +x ~/bin/gui
+	printf "#!/usr/bin/bash\nvncserver -kill :1\nvncserver :1\nexport DISPLAY=:1\n" > $PREFIX/bin/gui
+	chmod +x $PREFIX/bin/gui
 	case "$dn" in
-		XFCE) echo "xfce4-session &" >> ~/bin/gui ;;
-		MATE) echo "mate-session &" >> ~/bin/gui ;;
-		LXQt) echo "lxqt-session &" >> ~/bin/gui ;;
-		Fluxbox) echo -e "fluxbox-generate_menu\nfluxbox &" >> ~/bin/gui ;;
-		Openbox) echo "openbox-session &" >> ~/bin/gui
+		XFCE) echo "xfce4-session &" >> $PREFIX/bin/gui ;;
+		MATE) echo "mate-session &" >> $PREFIX/bin/gui ;;
+		LXQt) echo "lxqt-session &" >> $PREFIX/bin/gui ;;
+		Fluxbox) echo -e "fluxbox-generate_menu\nfluxbox &" >> $PREFIX/bin/gui ;;
+		Openbox) echo "openbox-session &" >> $PREFIX/bin/gui
 						mkdir -p ~/.config/openbox
 						echo -e "xsetroot -solid gray\npypanel &" >> ~/.config/openbox/autostart ;;
 	esac
@@ -107,5 +106,4 @@ __main
 printf "\e[?1049l\e[23;0;0t"
 i_pks
 s_vnc
-echo "export PATH=$PATH:~/bin" >>~/.profile
 printf "\n\nUse command \`gui\` to start vnc server\nVNC=> 127.0.0.1:5901\n"
