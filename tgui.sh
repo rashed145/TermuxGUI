@@ -107,5 +107,5 @@ __main
 printf "\e[?1049l\e[23;0;0t"
 i_pks
 s_vnc
-
+echo "export PATH=$PATH:~/bin" >>~/.profile
 printf "\n\nUse command \`gui\` to start vnc server\nVNC=> 127.0.0.1:5901\n"
